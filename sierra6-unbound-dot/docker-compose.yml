@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  unbound:
+    container_name: sierra6-unbound-dot_unbound_1
+    image: mvance/unbound:latest
+    restart: unless-stopped
+    stop_signal: SIGKILL
+    networks:
+      umbrel_main_network:
+        ipv4_address: 10.21.0.254
+    ports:
+      - "5335:53/udp"
+      - "5335:53/tcp"
+    volumes:
+      - ${APP_DATA_DIR}/unbound:/opt/unbound/etc/unbound
+
+  ui:
+    container_name: sierra6-unbound-dot_ui_1
+    image: ghcr.io/sierra6secure/unbound-dot-ui:latest
+    restart: unless-stopped
+    networks:
+      - umbrel_main_network
+    ports:
+      - "5330:5330"
+    volumes:
+      - ${APP_DATA_DIR}/unbound:/opt/unbound/etc/unbound
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - APP_PORT=5330
+
+networks:
+  umbrel_main_network:
+    external: true

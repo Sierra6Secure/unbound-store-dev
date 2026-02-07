@@ -1,0 +1,78 @@
+manifestVersion: 1
+id: sierra6-unbound-dot
+name: Unbound DoT
+tagline: Private DNS Forwarder with TLS Encryption
+icon: https://raw.githubusercontent.com/Sierra6Secure/umbrelos-store/main/sierra6-unbound-dot/img/sierra6_unbound_dns.svg
+category: Networking
+version: "1.0.5"
+port: 5330
+description: >-
+  A validating, caching DNS forwarder configured exclusively for DNS over TLS (DoT).
+
+
+  By running Unbound on your Umbrel with this specific configuration, your DNS queries are wrapped in a secure TLS tunnel before leaving your network. This prevents your ISP or local attackers from snooping on your browsing habits or hijacking your DNS requests.
+
+  
+  Key Features:
+    - Protocol: Operates as a "Caching Forwarder" using DNS over TLS (DoT) for maximum privacy.
+
+    - Security: Enforces encrypted communication via Port 853 to trusted upstream providers (Cloudflare/Quad9).
+
+    - Privacy: Employs forward-tls-upstream: yes and forward-first: no to ensure that if an encrypted connection cannot be established, the system will never fall back to an unsecure, cleartext query.
+
+    - Validation: Supports DNSSEC to ensure the integrity of the records received, protecting you from "spoofing" attacks.
+
+    - Integration: Perfectly optimized to serve as the upstream resolver for Pi-hole, creating a complete ad-blocking and privacy-hardened pipeline.
+
+    
+
+
+  Packaged by Sierra6.
+
+developer: Sierra6
+website: https://github.com/Sierra6Secure/umbrelos-store
+submitter: Sierra6
+submission: 
+repo: 
+support: https://github.com/Sierra6Secure/umbrelos-store
+gallery:
+  - https://raw.githubusercontent.com/Sierra6Secure/umbrelos-store/main/sierra6-unbound-dot/img/DNSSEC.png
+  - https://raw.githubusercontent.com/Sierra6Secure/umbrelos-store/main/sierra6-unbound-dot/img/DoT.png
+  - https://raw.githubusercontent.com/Sierra6Secure/umbrelos-store/main/sierra6-unbound-dot/img/PiHole.png
+
+releaseNotes: >-
+
+  1.0: UI Release
+
+    🖥️ NEW MANAGEMENT UI
+  
+    - Dynamic Configuration: Manage upstream DNS and custom settings via the Sierra6 dashboard.
+  
+    - Container Control: Integrated logic for automated restarts and configuration hot-swaps.
+  
+    - Safety System: Added a 'Revert to Default' feature to prevent accidental lockouts.
+
+
+
+    🛡️ SECURITY HARDENING
+  
+    - DoT Enforcement: Mandatory Port 853 encryption with 'forward-tls-upstream: yes'.
+  
+    - Leak Prevention: Set 'forward-first: no' to strictly block unencrypted fallback.
+  
+    - DNSSEC: Enabled hardware-accelerated signature validation to prevent spoofing.
+
+
+
+    🗺️ Roadmap
+    
+    - Performance Metrics: Real-time graphs for cache hit rates and latency.
+
+    - Certificate Management: Enhanced UI for private enterprise-grade TLS certs.
+
+     -Automated Backups: One-click export for disaster recovery.
+
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
