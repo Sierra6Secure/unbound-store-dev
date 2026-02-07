@@ -3,12 +3,12 @@ version: "3.7"
 services:
   unbound:
     container_name: sierra6-unbound-dot_unbound_1
-    image: vincejv/unbound:latest
+    image: mvance/unbound:latest
     restart: unless-stopped
     stop_signal: SIGKILL
     networks:
       umbrel_main_network:
-        ipv4_address: 10.21.0.250 # DEV Only : Update this to 10.21.0.254 one production
+        ipv4_address: 10.21.0.254
     ports:
       - "5335:53/udp"
       - "5335:53/tcp"
@@ -17,7 +17,7 @@ services:
 
   ui:
     container_name: sierra6-unbound-dot_ui_1
-    image: ghcr.io/sierra6secure/unbound-dot-ui-dev:latest
+    image: ghcr.io/sierra6secure/unbound-dot-ui:latest
     restart: unless-stopped
     networks:
       - umbrel_main_network
