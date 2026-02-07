@@ -3,7 +3,7 @@ version: "3.7"
 services:
   unbound:
     container_name: sierra6-unbound-dot_unbound_1
-    image: mvance/unbound-arm64:latest
+    image: vincejv/unbound:latest
     restart: unless-stopped
     stop_signal: SIGKILL
     networks:
