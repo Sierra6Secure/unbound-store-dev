@@ -17,7 +17,7 @@ services:
 
   ui:
     container_name: sierra6-unbound-dot_ui_1
-    image: ghcr.io/sierra6secure/unbound-dot-ui:latest
+    image: ghcr.io/sierra6secure/unbound-dot-ui-dev:latest #Change this back to prod when ready to push.
     restart: unless-stopped
     networks:
       - umbrel_main_network
